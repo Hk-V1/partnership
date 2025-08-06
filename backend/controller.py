@@ -1,7 +1,7 @@
-from discovery_agent import DiscoveryAgent
-from negotiation_agent import NegotiationAgent
-from communication_agent import CommunicationAgent
-from documentation_agent import DocumentationAgent
+from backend.discovery_agent import DiscoveryAgent
+from backend.negotiation_agent import NegotiationAgent
+from backend.communication_agent import CommunicationAgent
+from backend.documentation_agent import DocumentationAgent
 
 class MultiAgentController:
     def __init__(self):
