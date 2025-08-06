@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Dict
 from backend.controller import MultiAgentController
-import db_helpers
+import backend.db_helpers
 
 from fastapi.middleware.cors import CORSMiddleware
 
