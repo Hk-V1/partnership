@@ -1,15 +1,18 @@
-from transformers import pipeline
-
 class CommunicationAgent:
-    def __init__(self):
-        self.gen = pipeline("text-generation", model="gpt2")
-        self.tone_classifier = pipeline("text-classification", model="cardiffnlp/twitter-roberta-base-emotion")
-
     def compose_message(self, context, formality="formal"):
-        prompt = f"Write a {formality} email: {context}"
-        result = self.gen(prompt, max_length=100, eos_token_id=50256)
-        return result[0]['generated_text']
+        if formality == "formal":
+            msg = f"Dear partner,\n\n{context}\n\nBest regards,\nYour Team"
+        else:
+            msg = f"Hi,\n{context}\nThanks!"
+        return msg
 
     def analyze_tone(self, message):
-        result = self.tone_classifier(message)
-        return result
+        lowmsg = message.lower()
+        if "urgent" in lowmsg or "asap" in lowmsg or "immediately" in lowmsg:
+            return [{"label": "urgent", "score": 0.9}]
+        elif "thank" in lowmsg or "appreciat" in lowmsg:
+            return [{"label": "positive", "score": 0.9}]
+        elif "problem" in lowmsg or "unfortunately" in lowmsg:
+            return [{"label": "negative", "score": 0.8}]
+        else:
+            return [{"label": "neutral", "score": 0.75}]
