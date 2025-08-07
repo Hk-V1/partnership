@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #222;
+}
+
+.app-container {
+  max-width: 700px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 28px rgb(0 0 0 / 0.1);
+}
+
+h1 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 700;
+  color: #1976d2;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 14px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.input,
+.textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.textarea {
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.button {
+  margin-top: 24px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #155a9c;
+}
+
+.button:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+.error {
+  margin-top: 16px;
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+.result-container {
+  margin-top: 32px;
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.result-container ul {
+  padding-left: 1.2rem;
+}
+
+.result-container li {
+  margin-bottom: 12px;
+}
